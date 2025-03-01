@@ -6,6 +6,6 @@ import { Injectable } from '@nestjs/common';
 export class AppService {
   // Method to return a simple "Hello World" message
   getHello(): string {
-    return 'Hello World from NestJS and Fastify!';
+    return 'Hello World from NestJS and ';
   }
 }

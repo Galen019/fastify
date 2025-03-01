@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "start": "npx nodemon --exec ts-node src/server.ts",
-    "dev": "npx nodemon --exec ts-node --transpile-only src/server.ts"
+    "start": "npx nodemon --watch src --exec ts-node src/server.ts --legacy-watch --delay 1s",
+    "dev": "npx nodemon --watch src --exec ts-node --transpile-only src/server.ts --legacy-watch --delay 1s"
   },
   "repository": {
     "type": "git",
