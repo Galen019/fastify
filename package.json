@@ -1,0 +1,30 @@
+{
+  "name": "fastify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "nodemon --exec ts-node index.ts",
+    "dev": "npx nodemon --exec ts-node index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Galen019/fastify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Galen019/fastify/issues"
+  },
+  "homepage": "https://github.com/Galen019/fastify#readme",
+  "dependencies": {
+    "fastify": "file:"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.8",
+    "typescript": "^5.8.2"
+  }
+}
