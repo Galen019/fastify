@@ -1,13 +1,38 @@
 version: '3'
 services:
-  nestjs-app:
-    build: .
+  # nestjs-app:
+  #   build: .
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - .:/app
+  #   environment:
+  #     - NODE_ENV=development
+  #   command: npm run dev
+  #   depends_on:
+  #     - mongodb
+  #   # auto-restart in case of failure.
+  #   restart: unless-stopped
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
     ports:
-      - "3000:3000"
+      - "27017:27017"
     volumes:
-      - .:/app
+      - C:\volumes\mongo:/data/db  # Bind mount to Windows path
     environment:
-      - NODE_ENV=development
-    command: npm run dev
-    # Optionally, you can add a restart policy if you want it to auto-restart in case of failure.
+      - MONGO_INITDB_DATABASE=mydatabase
+
+  mongo-express:
+    image: mongo-express:1.0.2-20-alpine3.19
+    container_name: mongo-express
     restart: unless-stopped
+    ports:
+      - "8081:8081"  # Web UI accessible on http://localhost:8081
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb  # Connects to MongoDB service
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=admin
+    depends_on:
+      - mongodb
